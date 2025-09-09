@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>div_style</title>
+    <style>
+      /* div를 나란히 놓는 방법 */
+
+      /**  float
+        *
+        *  콘텐츠의 위치 지정 및 서식 지정에 사용되며 요소를 수직이 아닌 수평으로 배치
+        */
+      /* .mycontainer {
+        width: 100%;
+        overflow: auto;
+      }
+      .mycontainer div {
+        width: 33%;
+        float: left;
+      } */
+
+      /**  inline-block
+        *
+        *  <div>요소의 display속성을 에서 로 block변경 하면 inline-block요소 <div>가 더 이상 앞뒤에 줄 *   *  바꿈을 추가하지 않고 서로 위에 놓이지 않고 나란히 표시
+        */
+      /* div {
+        width: 33%;
+        display: inline-block;
+      } */
+
+      /**  flex
+        *
+        *  <div>요소를 다른 요소로 둘러싸고 해당 <div>요소에 flex 컨테이너 상태를 부여
+        */
+      /* .mycontainer {
+        display: flex;
+      }
+      .mycontainer div {
+        width: 33%;
+      } */
+
+      /**  grid
+        *
+        *  <div>요소를 다른 <div>요소로 둘러싸고 그리드 컨테이너로 상태를 지정해야 하며, 각 열의 너비를 지정
+        */
+      .mycontainer {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mycontainer">
+      <div style="background-color: #fff4a3">
+        <h2>London</h2>
+        <p>London is the capital city of England.</p>
+        <p>London has over 9 million inhabitants.</p>
+      </div>
+
+      <div style="background-color: #ffc0c7">
+        <h2>Oslo</h2>
+        <p>Oslo is the capital city of Norway.</p>
+        <p>Oslo has over 700,000 inhabitants.</p>
+      </div>
+
+      <div style="background-color: #d9eee1">
+        <h2>Rome</h2>
+        <p>Rome is the capital city of Italy.</p>
+        <p>Rome has over 4 million inhabitants.</p>
+      </div>
+    </div>
+  </body>
+</html>

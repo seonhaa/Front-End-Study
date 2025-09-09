@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /*
+    * 
+    * HTML class속성은 요소에 대한 하나 이상의 클래스 이름을 지정합니다.
+    * CSS와 JavaScript는 클래스를 사용하여 특정 요소를 선택하고 액세스합니다.
+    * 이 class속성은 모든 HTML 요소에 사용될 수 있습니다.
+    * 클래스 이름은 대소문자를 구분합니다.
+    * 다양한 HTML 요소가 동일한 클래스 이름을 가리킬 수 있습니다.
+    * getElementsByClassName() JavaScript는 메서드를 사용하여 특정 클래스 이름을 가진 요소에 적용 가능.
+    */
+      .city {
+        background-color: tomato;
+        color: white;
+        border: 2px solid black;
+        margin: 20px;
+        padding: 20px;
+      }
+      .main {
+        text-align: center;
+      }
+      button {
+        width: 50%;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="myFunction()">버튼</button>
+
+    <div class="city main">
+      <h2>London</h2>
+      <p>London is the capital of England.</p>
+    </div>
+
+    <div class="city">
+      <h2 class="cityName">Paris</h2>
+      <p>Paris is the capital of France.</p>
+    </div>
+
+    <div>
+      <h2 class="cityName">Tokyo</h2>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+
+<!-- class = "cityName" 안보이게 하는 js -->
+    <script>
+      function myFunction() {
+        var x = document.getElementsByClassName("cityName");
+        for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

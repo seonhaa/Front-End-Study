@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+   /*
+    *
+    *
+    * 속성 id는 HTML 내에서 고유 ID를 지정
+    * 해시 문자(#) 뒤에 id 이름을 입력 [ex) #myHeader]
+    * 클래스 이름은 여러 개 사용할 수 있지만, ID 이름은 페이지 내에서 하나만 사용 가능 
+    * 속성 값은 id 대소문자를 구분합니다.
+    * getElementById() JavaScript는 다음 메서드를 사용하여 특정 ID를 가진 요소에 액세스 가능
+    * 
+    * 
+    * 
+    */
+      /* Style the element with the id "myHeader" */
+      #myHeader {
+        background-color: lightblue;
+        color: black;
+        padding: 40px;
+        text-align: center;
+      }
+
+      /* Style all elements with the class name "city" */
+      .city {
+        background-color: tomato;
+        color: white;
+        padding: 10px;
+      }
+      button {
+        width: 50%;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Difference Between Class and ID</h2>
+    <p>
+      A class name can be used by multiple HTML elements, while an id name must
+      only be used by one HTML element within the page:
+    </p>
+
+    <!-- An element with a unique id -->
+    <h1 id="myHeader">My Cities</h1>
+
+    <!-- Multiple elements with same class -->
+    <h2 class="city">London</h2>
+    <p>London is the capital of England.</p>
+
+    <h2 class="city">Paris</h2>
+    <p>Paris is the capital of France.</p>
+
+    <h2 class="city">Tokyo</h2>
+    <p id="myResult">Tokyo is the capital of Japan.</p>
+
+    <button onclick="displayResult()">버튼</button>
+
+    <script>
+      function displayResult() {
+        document.getElementById("myResult").textContent = "Have a nice day";
+      }
+    </script>
+  </body>
+</html>

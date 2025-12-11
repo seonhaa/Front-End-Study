@@ -1,0 +1,48 @@
+◽   증감 연산자 : ++,--
+
+1. 전위연산자
+    a = 1;
+    b = ++a;    // a = 2, b = 2
+
+2. 후위연산자
+    a = 1;
+    b = a++;    // a = 2, b = 1
+
+a++ a를 1 증가하고 증가 전의 값 반환
+a-- a를 1 감소하고 감소 전의 값 반환
+
+++a a를 1증가하고 증가 후의 값 반환
+--a a를 1감소하고 감소 후의 값 반환
+
+◽   대입 연산자 : 오른쪽 식의 결과를 왼쪽 변수에 대입
+
+a = b   b값을 a에 대입      a &= b  a = a & b
+a += b  a = a + b           a ^= b  a = a ^ b
+a -= b  a = a - b           a \= b  a = a \ b
+a *= b  a = a * b           a <<= b a = a << b
+a /= b  a = a / b           a >>= b a = a >> b
+a %= b  a = a % b           a >>>= b    a = a >>> b
+
+◽   비교 연산자 : 두 값 비교, true나 false의 결과를 내는 연산
+
+let age = 25;
+let result = (age > 20);    // age가 20보다 크므로 result는 true
+
+    *연산자 종류*
+    <, >, <=, >=, ==, !=
+
+◽   논리 연산자: AND,OR,NOT
+    let score = 90;
+    let age = 20;
+    let res = ((score > 80) && (age <25));  // res = true
+
+    *연산자 종류*
+    a && b: a,b 모두 true일 때, true 리턴 
+    a || b: a,b 둘 중 하나 true일 때, true 리턴
+    !a    : a true이면 false 값을, false이면 true 리턴
+
+◽   조건 연산자: condition  ?   expT : expF
+    condition이 true이면 expT / false이면 expF
+
+    let x = 5, y = 3;
+    let big = (x>y) ? x : y     // (x>y)가 true이므로 x 값 5가 big에 대입된다.

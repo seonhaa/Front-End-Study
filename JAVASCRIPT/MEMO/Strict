@@ -1,0 +1,43 @@
+✔ 암묵적 전역현상: "use strict"를 선언하지 않은 상태에서, <var, let, const> 키워드 없이 변수를 선언하면
+해당 변수는 자동으로 전역(global) 변수로 등록
+
+        function foo() {
+        x = 10; // var, let, const 없이 사용!
+        }
+
+        foo();
+
+        console.log(x); // 10 (전역 변수처럼 됨)
+
+            * 이는 오류의 원인이 될 수 있어 권장 X *
+
+✔ Strict mode: "use strict"
+    자바스크립트가 엄격한 검사 모드로 작동.
+    오타, 위험한 문법, 비정상 동작 등을 막기 위해 에러를 명시적으로 발생시킴.
+    실무에서 많이 사용.
+
+    ◽ 적용 방법
+        -코드 최상단 혹은 함수 시작 부분에 "use strict" 추가-
+
+            // 전역에서 strict mode 선언
+            "use strict";
+            ...
+
+            function foo() {
+            // 함수 내부에서 strict mode 선언
+            "use strict";
+            ...
+            }
+        
+    ◽ strict mode 피하기
+        - 전역에 strict mode를 적용하면 스크립트 단위로 적용됨
+        - 여러 스크립트 파일이 사용되는 환경에서는 스크립트마다 strict mode 여부가 다를 수 있음
+        - 외부 라이브러리가 non-strict mode일 경우, 혼용 시 오류가 발생
+        - 따라서 strict mode를 사용할 때는 즉시 실행 함수로 감싸서 다른 스크립트 파일에 영향을 주지 않는 것이 좋음
+
+
+    ◽ Error
+        - 암묵적 전역 → ReferenceError
+        - 변수, 함수, 매개변수의 삭제 → SyntaxError
+        - 중복된 매개변수 이름 사용 → SyntaxError
+        - with문 사용 → SyntaxError

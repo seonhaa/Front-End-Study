@@ -1,0 +1,51 @@
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ COPY BY VALUE ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+[1] let original = "안녕하세요"
+[2] let clone = original;
+
+    console.log(original);
+    console.log(clone);
+
+[3] clone += " 안유진 입니다."
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+[1] 변수에 값(VALUE)를 선언
+[2] 클론변수에 오리지널변수를 복사
+[3] 클론변수에 글자를 추가
+
+* 원본 값 자체를 그대로 복사해서 새로운 값으로 저장하는 방법
+-> 한 쪽을 바꿔도 다른 쪽 영향 없음(독립적)
+
+원시 타입(Primitive types)
+	•	number
+	•	string
+	•	boolean
+	•	null
+	•	undefined
+	•	symbol
+	•	bigint
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ COPY BY REF ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+[1]    let originalObj = {
+        name: "안유진",
+        group: "아이브",
+        };
+[2]    let cloneObj = originalObj;
+
+        console.log(originalObj);
+        console.log(cloneObj);
+
+[3]    originalObj["group"] = "코드팩토리";
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+[1] 객체 하나 만들고 originalObj라는 이름표를 붙인다.
+[2] cloneObj는 상자를 새로 만드는 게 아니라 같은 상자를 같이 바라보는 두 번째 이름표다.
+[3] originalObj 안의 값을 바꾸면 둘 다 같은 상자를 보므로 cloneObj에서도 값이 바뀌어 있다.
+
+* 값 자체를 복사하는 것이 아니라, 값이 저장된 메모리 주소(참조)를 복사하는 방법
+-> 둘 다 같은 객체 / 배열을 가리킴
+
+객체 타입(Object types)
+	•	object
+	•	array
+	•	function
+	•	map, set 등등

@@ -1,0 +1,82 @@
+프로퍼티 어트리뷰트(Property Attribute) & 디스크립터(Property Descriptor)
+
+1. 프로퍼티 어트리뷰트(Property Attribute)
+◽ 프로퍼티에 저장된 값 뿐만 아니라 *정보(메타 데이터)*를 의미
+    1️⃣ value: 프로퍼티의 실제 값
+    2️⃣ writable: 프로퍼티의 값을 수정할 수 있는지 여부 (true/false)
+    3️⃣ enumerable: 프로퍼티가 반복문(for...in, Object.keys) 에서 보일지 여부 (true/false)
+    4️⃣ configurable: 프로퍼티의 설정을 변경, 삭제 가능 여부 (true/false)
+
+
+2.프로퍼티 디스크립터(Property Descriptor)
+◽ 위 어트리뷰트 값을 객체화 한 것.
+    ◦ 프로퍼티 디스크립터 확인 방법
+        Object.getOwnPropertyDescriptor(객체, 프로퍼티 키) : 특정 프로퍼티의 디스크립터(프로퍼티 상태) 반환
+        Object.getOwnPropertyDescriptors(객체) : 객체의 모든 디스크립터(프로퍼티 상태) 반환
+
+const person = {
+    name = 'Hwang'
+};
+
+; 동적 프로퍼티 생성
+person.age = 24;
+
+; 모든 프로퍼티의 어트리뷰트 정보를 제공하는 디스크립터 반환
+console.log(Object.getOwnPropertyDescriptors(person));
+
+; {
+;   name: {
+;     value: 'Hwang',
+;     writable: true,
+;     enumerable: true,
+;     configurable: true
+;   },
+;   age: { value: 24, writable: true, enumerable: true, configurable: true }
+; }
+
+데이터 프로퍼티 & 접근자 프로퍼티
+◽ 데이터 프로퍼티: 키와 값으로 구성된 일반적인 프로퍼티.(대부분의 프로퍼티/ 저장값: value)
+        ◦ 프로퍼티 어트리뷰트
+            value: 프로퍼티의 값
+            writable: 값을 수정할 수 있는지 여부 (true/false)
+            enumerable: 반복문에 나타날지 여부 (true/false)
+            configurable: 설정 변경 및 삭제 가능 여부 (true/false)
+◽ 접근자 프로퍼티: 자체적으로 값을 직접 저장하지 않고, getter와 setter라는 함수를 통해 값을 가져오거나 설정하는 프로퍼티.
+        ◦ 프로퍼티 어트리뷰트
+            get: 값을 가져올 때 호출되는 함수 (자동으로 getter 함수 호출)
+            set: 값을 설정할 때 호출되는 함수 (자동으로 setter 함수 호출)
+            enumerable: 반복문에 나타날지 여부 (true/false) -> 기본값 true
+            configurable: 설정 변경 및 삭제 가능 여부 (true/false) -> 기본값 true
+
+
+    // 객체 생성
+    const user = {
+    firstName: "John",
+    lastName: "Doe",
+
+    // 일반 메서드로 정의
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+
+    setFullName(name) {
+        [this.firstName, this.lastName] = name.split(" ");
+    }
+    };
+
+    // 함수처럼 호출
+    console.log(user.getFullName());  // "John Doe"
+    user.setFullName("Jane Smith");
+    console.log(user.firstName); // "Jane"
+    console.log(user.lastName);  // "Smith"
+
+    // 접근자 프로퍼티 디스크립터 확인
+    console.log(Object.getOwnPropertyDescriptor(user, "fullName"));
+    /*
+    {
+    get: [Function: get fullName],
+    set: [Function: set fullName],
+    enumerable: true,
+    configurable: true
+    }
+    */

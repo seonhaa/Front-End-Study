@@ -1,0 +1,26 @@
+[Async Programming]
+
+Thread: working unit
+
+CPU
+- 8 Core 16 Thread
+- 각 코어가 2개의 스레드를 가짐
+- 총 16스레드(동시에 작업 가능한 것이 16개)
+
+
+JS는 Single Thread!
+-> 어느 한 순간에 동시에 단 하나의 작업만 실행 가능함
+네트워크 요청, 파일 읽기, 타이머 같은 작업을 직접 기다리면서 처리하면
+→ 전체 프로그램이 멈춤(Blocking)
+→ UI도 멈추고 버튼 클릭도 안 됨.
+
+-> 이 단점을 Async(비동기) 프로그래밍으로 극복 가능
+
+Sync Programming(동기 프로그래밍)
+- 비동기 반대임
+
+Event Loop
+
+JS는 한 번의 하나의 작업만 가능하기에 
+오래 걸리는 일은 Task Queue / Event Queue 에서 관리 & Call Stack으로 옮김.
+-> 이 일을 하는 것이 Event Loop

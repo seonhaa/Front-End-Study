@@ -1,0 +1,29 @@
+✔ HTML DOM: 브라우저가 HTML을 읽어서 계층구조(트리)를 만든 것.
+
+◽ HTML DOM(DOM)
+    웹 페이지에 작성된 HTML 태그 당 객체(DOM 객체) 생성
+◽ DOM 트리
+    HTML 태그의 포함관계에 따라 DOM 객체의 트리(tree) 생성
+◽ DOM 객체
+    DOM 트리의 한 노드
+
+
+EX.
+    // 예시: <p id="demo">Hello</p> 있을 때
+
+    // DOM 객체 접근
+    let p = document.getElementById('demo');
+
+    // 내용 변경
+    p.innerText = "Hi!"; // 웹페이지에서 "Hello" → "Hi!"로 바뀜
+
+    // 스타일 변경
+    p.style.color = 'red';
+
+✔ 자주 쓰는 DOM 메소드
+
+getElementById                  id로 요소 찾기
+getElementsByClassName          클래스 명으로 여러 요소 찾기
+getElementsByTagName            태그명으로 여러 요소 찾기
+querySelector                css 선택자처럼 한 요소 찾기
+querySelectorAll                css 선택자처럼 여러 요소 찾기

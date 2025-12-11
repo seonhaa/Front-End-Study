@@ -1,0 +1,125 @@
+✔ 자바스크립트 객체구성
+    1. 프로퍼티: 객체의 고유한 속성(변수)
+        키(key): 빈 문자열("")을 포함한 모든 문자열(string) 또는 심벌(symbol) 값
+        값(value): 자바스크립트에서 사용할 수 있는 모든 값
+
+        var person = {
+            name = "Hwang",      프로퍼티 키는 name, 프로퍼티 값은 "WI"
+            age = 25,            프로퍼티 키는 age, 프로퍼티 값은 100
+        };
+
+    ◽점 표기법: 식별자 규칙 준수 필수
+    ◽대괄호 표기법: 문자열이면 아무거나 가능
+    ◽일반적으로 식별자 규칙 + camelCase 네이밍 권장
+    
+    2. 메소드(method): 함수
+
+    var person = {
+        // 프로퍼티
+        name: "Hwang",
+
+        // 메서드
+        sayHello: function () {
+        console.log(`Hello My name is ${this.name}`);
+        },
+    };
+    person.sayHello(); // Hello My name is Hwnag
+
+✔ 자바스크립트는 객체기반언어이지 객체지향언어가 아님.
+
+✔ 자바스크립트 객체의 유형
+    1.  코어객체
+    2.  HTML DOM 객체
+    3.  브라우저 객체
+
+
+✔ 코어객체 (Array, Date, String, Math)
+    ◦ 코어객체의 생성
+        - new 키워드 사용
+            let week = new Array("월", "화", "수", "목", "금", "토", "일");
+            let today = new Date(); // 시간 정보를 다루는 Date 타입의 객체 생성
+            let msg = new String("Hello"); // "Hello" 문자열을 담은 String 타입의 객체 생성
+
+        - 객체가 생성되면 객체 내부에 프로퍼티와 메소드들 존재
+            obj.프로퍼티 = 값; // 객체 obj의 프로퍼티 값 변경
+            변수 = obj.프로퍼티; // 객체 obj의 프로퍼티 값 알아내기
+            obj.메소드(매개변수 값들); // 객체 obj의 메소드 호출
+
+    ◦ 객체 접근
+        - 마침표 표기법: 가장 많이 쓰임, 정적이고, 식별자 규칙을 따르는 프로퍼티에 적합
+
+        - 대괄호 표기법: 동적 접근
+                        변수, 특수문자, 공백, 숫자 등이 들어가는 프로퍼티
+                        SON 데이터, 외부 데이터 파싱할 때
+                        자동화/반복문 처리할 때
+
+✔ 배열
+    ◦ 여러 개의 원소를 연속적으로 저장
+    
+    ◦ 배열 만드는 2가지 방법
+        1. []
+            ◦ [] 안에 원소들의 초기 값 나열
+                let week = ["월", "화", "수", "목", "금", "토", "일"];
+                let plots = [-20, -5, 0, 15, 20];
+            
+            ◦ 배열 크기 : 배열의 크기는 고정되지 않고 원소 추가 시 늘어남
+                - 배열의 끝에 원소 추가
+                    plots[5] = 33; // plots 배열에 6번째 원소 추가. 배열 크기는 6이 됨
+                    plots[6] = 22; // plots 배열에 7번째 원소 추가. 배열 크기는 7이 됨
+                - 현재 배열보다 큰 인덱스에 원소를 추가하면 값이 비어 있는 중간의 원소들은 모두 undefined 값
+                    plots[10] = 33; // 주의. plots 배열의 크기는 11개가되고, plots[7], plots[8], plots[9]의 값은 모두 undefined 값
+        
+        2. Array 객체
+            ◦ 초기 값을 가진 배열 생성
+                let week = new Array("월", "화", "수", "목", "금", "토", "일");
+            ◦ 초기화 되지 않은  배열 생성
+                let week = new Array(7); // 7개의 원소를 가진 배열 생성
+                week[0] = "월";
+                week[1] = "화";
+                ...
+            ◦ 빈 배열 생성
+                let week = new Array(); // 빈 배열 생성
+                week[0] = "월"; // 배열 week 크기 자동으로 1
+                week[1] = "화"; // 배열 week 크기 자동으로 2
+
+
+    ◦ 배열의 크기: Array 객체의 length 프로퍼티
+        let plots = [-20, -5, 0, 15, 20];
+        let week = new Array("월", "화", "수", "목", "금", "토", "일");
+        let m = plots.length; // m은 5
+        let n = week.length; // n은 7
+
+        - length 프로퍼티는 Array 자동 관리 or 사용자가 임의로 줄이거나 늘릴 수 있음
+
+
+
+
+✔ Date 객체 
+    ◦ 시간 정보를 담는 객체
+        - 현재 시간 정보
+            let now = new Date(); // 현재 날짜와 시간(시, 분, 초) 값으로 초기화된 객체 생성
+        - 오늘 2025년 6월 5일의 날짜 기억
+            let startDay = new Date(2025, 5, 5); // 2025년 6월 5일(5는 6월을 뜻함)
+
+✔ String 객체 
+    ◦ 문자열을 담기 위한 객체
+    ◦ String 객체는 일단 생성되면 수정 불가
+        let hello = new String(“Hello”);
+        let res = hello.concat(“Javascript”);   // concat() 후 hello의 문자열 변화 없음
+    ◦ String 객체의 length 프로퍼티 : 읽기 전용
+        let n = "Thank you".length; // n은 9
+    ◦ 문자열을 배열처럼 사용
+        - [] 연산자를 사용하여 각 문자 접근
+
+✔ Math
+    ◦ 수학 계산을 위한 프로퍼티와 메소드 제공
+    ◦ new Math()로 객체 생성하지 않고 사용
+        let sq = Math.sqrt(4); // 4의 제곱근을 구하면 2
+    ◦ 난수 발생
+        - Math.random() : 0~1보다 작은 랜덤한 실수 리턴
+            0~99까지 난수 발생 코드
+            for(let i=0; i<10; i++) {
+                let m = Math.random()*100;       m은 0~99.999... 보다 작은 실수 난수
+                let n = Math.floor(m);           m에서 소수점 이하를 제거한 정수(0~99사이)
+                document.write(n + " ");
+                }

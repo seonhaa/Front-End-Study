@@ -1,0 +1,33 @@
+[Executon Context]
+-> 실행하려는 JS코드와 코드를 실행할 때 필요한 정보를 담고 있는 특수한 환경
+(코드 실행에 필요한 데이터 환경)
+
+- Global Context: 최상위 Executon Context
+                -> 코드를 실행하면 무조건 생성(웹에서 window객체 / nodeJS에서 global객체)
+
+- Function Context: 함수가 실행될 때마다 함수 별로 실행되는 Context
+                -> 함수 실행에 대한 모든 정보를 담음
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+Memory Heap & Call Stack
+
+Memory Heap: 메모리를 관리하는 공간
+
+Call Stack(Execution Context Stack): Stack은 특정 데이터 구조를 말함. 
+                                    나중에 넣은 데이터가 제일 먼저 나가는 구조.
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+Execution Context Stack
+
+- Creation Phase
+    - Global Object를 생성한다. window 또는 global 객체가 생성되고 함수에서는 arguments 객체가 생성한다.
+    - this를 window 또는 global에 바인딩한다.
+    - 변수와 함수를 미리 Memory Heap에 배정하고 기본 값을 undefined로 지정한다. (=> hoisting이 일어나는 이유)
+
+- Execution Phase
+    - 코드를 실행한다.
+    - 필요하다면 새로운 Execution Context를 생성한다.
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ

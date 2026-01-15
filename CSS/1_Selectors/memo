@@ -1,0 +1,8 @@
+css 선택자
+
+전체: *
+type: Tag
+ID: #id
+Class: .class
+State: 그냥 작성
+Attribute: []

@@ -1,0 +1,35 @@
+[FlexBox]
+
+container{
+    display
+    flex-direction: 기본값 row(가로축), column(세로축) reverse(역순)
+
+    flex-wrap: 기본값 nowrap(줄바꿈 x), wrap(넘치면 줄바꿈)
+    
+    flex-flow: flex-direction과 flex-wrap을 합쳐 사용 (column nowrap)
+    
+    justify-content: 중심 축에서 아이템 배치 결정
+                    [flex-start, center, flex-end ]
+                    [space-evenly, space-between]
+    
+    align-items: 중심 축 반대에서 아이템 배치 결정
+            
+    
+    align-content: 중심 축 반대 아이템 위치 결정
+}
+
+item{
+    order: 아이템 순서 변경 (거의 안씀)
+
+    flex-grow: 컨테이너의 사이즈가 바뀌었을 때 얼마나 늘어나는지
+    
+    flex-shrink: 컨테이너의 사이즈가 바뀌었을 때 얼마나 작아지는
+    
+    flex-basis: 컨테이너에서 차지하는 % 비율
+
+    flex: flex-grow, -shrink, -basis를 모두 합친 것
+        2 2 auto
+    
+    align-self: 아이템 별로 정렬 기능
+}
+

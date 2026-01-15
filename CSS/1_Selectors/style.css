@@ -1,0 +1,37 @@
+/* selector {
+  property: value;
+} */
+
+* {
+  color: green;
+}
+
+li {
+  color: blue;
+}
+#special {
+  color: pink;
+}
+
+.red {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+}
+
+button:hover {
+  color: red;
+  background-color: beige;
+}
+a[href] {
+  color: purple;
+}
+
+.blue {
+  width: 100px;
+  height: 100px;
+  padding: 20px 0;
+  margin: 20px;
+  border: 2px solid pink;
+  background-color: grey;
+}
